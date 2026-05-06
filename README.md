@@ -1,5 +1,29 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg) ![](../../workflows/fpga/badge.svg)
 
+# 8-bit ALU — TinyTapeout
+
+An 8-bit ALU supporting ADD, SUB, AND, OR, XOR, NOT and PASS operations,
+synthesized and placed & routed on IHP SG13G2 130nm process.
+
+## GDS Layout
+
+![GDS Layout of tt_um_alu8bit](docs/images/gds.layout.png)
+
+*Physical layout of the 8-bit ALU on IHP 130nm silicon.
+Blue region shows ALU logic gates. Generated via TinyTapeout.*
+
+## Operations
+
+| Opcode | Operation |
+|--------|-----------|
+| 000    | ADD (A + B) |
+| 001    | SUB (A - B) |
+| 010    | AND (A & B) |
+| 011    | OR  (A \| B) |
+| 100    | XOR (A ^ B) |
+| 101    | NOT (~A)    |
+| 110    | PASS (B)    |
+
 # Tiny Tapeout Verilog Project Template
 
 - [Read the documentation for project](docs/info.md)
