@@ -7,13 +7,32 @@ You can also include images in this folder and reference them in the markdown. E
 512 kb in size, and the combined size of all images must be less than 1 MB.
 -->
 
-## How it works
+---
+# How it works
 
-Explain how your project works
+An 8-bit ALU supporting 7 operations selected by a 3-bit opcode.
+Operand A is provided via ui_in. Operand B is loaded into a register
+by asserting uio_in[3] (load_b) for one clock cycle while ui_in holds
+the B value. The result appears on uo_out. A zero flag is set on
+uio_out[0] when the result is zero.
 
-## How to test
+Opcodes:
+- 000: ADD (A + B)
+- 001: SUB (A - B)
+- 010: AND (A & B)
+- 011: OR  (A | B)
+- 100: XOR (A ^ B)
+- 101: NOT (~A)
+- 110: PASS (B)
 
-Explain how to use your project
+# How to test
+
+1. Reset the design (rst_n = 0, then rst_n = 1)
+2. Load operand B: set ui_in to B value, set uio_in[3]=1, wait one clock, set uio_in[3]=0
+3. Set ui_in to operand A value
+4. Set uio_in[2:0] to desired opcode
+5. Read result from uo_out
+6. Check zero flag on uio_out[0]
 
 ## External hardware
 
