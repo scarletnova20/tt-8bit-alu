@@ -65,3 +65,4 @@ async def test_not(dut):
     dut.uio_in.value = 0b101
     await Timer(1, units="ns")
     assert dut.uo_out.value == 0b00001111, f"NOT failed: got {dut.uo_out.value}"
+
